@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mukta Oral Cancer Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Page -->
+        <div id="loginPage" class="page active">
+            <h2>Welcome to Mukta</h2>
+            <form id="loginForm">
+                <label for="name">Name:</label><input type="text" id="name" required>
+                <label for="age">Age:</label><input type="number" id="age" required>
+                <label for="gender">Gender:</label><select id="gender">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+                <button type="button" onclick="nextPage('parametersPage')">Submit</button>
+            </form>
+        </div>
+
+        <!-- Parameter Entry Page -->
+        <div id="parametersPage" class="page">
+            <h2>Enter Details for Oral Cancer Prediction</h2>
+            <form id="parametersForm">
+                <label for="occupation">Occupation:</label><input type="text" id="occupation" required>
+                <label for="tobacco">Tobacco Use (1 for Yes, 0 for No):</label><input type="number" id="tobacco" required>
+                <label for="alcohol">Alcohol Consumption (Numeric):</label><input type="number" id="alcohol" required>
+                <label for="betelnut">Betel Nut Consumption (1 for Yes, 0 for No):</label><input type="number" id="betelnut" required>
+                <label for="familyHistory">Family History (1 for Yes, 0 for No):</label><input type="number" id="familyHistory" required>
+                <label for="oralHygiene">Oral Hygiene:</label><select id="oralHygiene">
+                    <option value="good">Good</option>
+                    <option value="average">Average</option>
+                    <option value="poor">Poor</option>
+                </select>
+                <label for="smoking">Smoking (1 for Yes, 0 for No):</label><input type="number" id="smoking" required>
+                <button type="button" onclick="nextPage('uploadPage')">Submit</button>
+            </form>
+        </div>
+
+        <!-- Upload Page -->
+        <div id="uploadPage" class="page">
+            <h2>Upload Image of Your Mouth</h2>
+            <input type="file" id="imageUpload" accept="image/*" onchange="showImage()" required>
+            <img id="uploadedImage" src="" alt="Mouth Image" style="display:none;">
+            <button type="button" onclick="nextPage('resultPage')">Submit</button>
+        </div>
+
+        <!-- Result Page -->
+        <div id="resultPage" class="page">
+            <h2>Prediction Result</h2>
+            <p id="resultText"></p>
+            <p id="precautionText"></p>
+            <p id="doctorText"></p>
+            <button onclick="window.location.reload()">Restart</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
